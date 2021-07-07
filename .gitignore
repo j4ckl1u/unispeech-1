@@ -131,3 +131,6 @@ data-bin/
 
 # Experimental Folder
 experimental/*
+
+/examples/unispeech/data.tar.gz
+/examples/unispeech/data
