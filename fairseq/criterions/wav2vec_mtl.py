@@ -71,7 +71,7 @@ class Wav2vecMTLCriterion(LegacyFairseqCriterion):
         )
         if ctc_sample_size != ctc_ntokens:
             metrics.log_scalar(
-                "nll_loss", ctc_loss_sum / ctc_ntokens / math.log(2), ntokens, round=3
+                "nll_loss", ctc_loss_sum / ctc_ntokens / math.log(2), ctc_ntokens, round=3
             )
         c_errors = sum(log['ctc'].get("c_errors", 0) for log in logging_outputs)
         metrics.log_scalar("_c_errors", c_errors)
