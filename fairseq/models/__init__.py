@@ -49,7 +49,11 @@ __all__ = [
 
 def build_model(cfg: DictConfig, task):
     if isinstance(cfg, DictConfig):
+        if cfg._name == 'wav2vec_mtls1':
+            cfg._name = 'unispeech'
         return ARCH_MODEL_REGISTRY[cfg._name].build_model(cfg, task)
+    if cfg.arch == 'wav2vec_mtls1':
+        cfg.arch = 'unispeech'
     return ARCH_MODEL_REGISTRY[cfg.arch].build_model(cfg, task)
 
 
